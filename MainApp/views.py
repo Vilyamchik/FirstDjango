@@ -19,11 +19,11 @@ items = [
    {"id": 8, "name": "Кепка", "quantity": 124},
 ]
 
+context = {
+    'fruits': ['apple', 'banana', 'cocos']
+}
 
 def home(request):
-    # text = """<h1>"Изучаем django"</h1>
-    #        <strong>Автор</strong>: <i>Иванов И.П.</i>"""
-    # return HttpResponse(text)
     context = {
         "name": "Петров Иван Николаевич",
         "email": "my_mail@mail.ru"
@@ -32,43 +32,24 @@ def home(request):
 
 
 def about(request):
-    text = f"""
-       Имя: <b>{author['Имя']}</b><br>
-       Отчество: <b>{author['Отчество']}</b><br>
-       Фамилия: <b>{author['Фамилия']}</b><br>
-       телефон: <b>{author['телефон']}</b><br>
-       email: <b>{author['email']}</b><br>
-       """
-    return HttpResponse(text)
+    context = {
+        "author": author,
+    }
+    return render(request, "about.html", context)
 
-
-# url item/1
-# url item/2
-# ...
-# url item/n
 
 def get_item(request, item_id: int):
-    """ По указанному item_id возращаем имя элемента и количество. """
     for item in items:
         if item['id'] == item_id:
-            result = f""" 
-            <h2>Имя: {item["name"]}</h2>
-            <p>Количество: {item['quantity']}</p> 
-            <p> <a href="/items"> Назад к списку товаров</a></p> 
-            """
-            return HttpResponse(result)
+            context = {
+                'item_name': item['name'],
+                'item_quantity': item['quantity'],
+            }
+            return render(request, "item.html", context)
     return HttpResponseNotFound(f'Item with id={item_id} not found')
 
-
-# <ol>
-#   <li> ... </li>
-#   <li> ... </li>
-#   <li> ... </li>
-# </ol>
-
 def get_items(request):
-    result = "<h2>Список товаров</h2><ol>"
-    for item in items:
-        result += f"""<li><a href="/item/{item['id']}"> {item["name"]} </a></li>"""
-    result += "</ol>"
-    return HttpResponse(result)
+    context = {
+        'items': items,
+    }
+    return render(request, "items.html", context)
