@@ -2,9 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
+    <title> Home page </title>
 </head>
 <body>
+    <header>
+            /<a href="/">Home</a></li>
+            /<a href="/items">Items</a></li>
+            /<a href="/about">About</a></li>
+    </header>
     <h1> Приветствую! </h1>
 
     Меня зовут: <i>{{ name }}.</i><br>
@@ -12,10 +17,8 @@
 
     Это главная страница сайта <br>
     <i> Сайт пока в разработке... </i>
-    <ul>
-        {% for fruit in fruits %}
-            <li>{{fruit}}</li>
-        {% endfor %}
-    </ul>
+
+
+
 </body>
 </html>

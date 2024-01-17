@@ -1,15 +1,22 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>All Products</title>
+    <title> Items list </title>
 </head>
 <body>
-    <h1>All Products</h1>
+    <header>
+        /<a href="/">Home</a></li>
+        /<a href="/items">Items</a></li>
+        /<a href="/about">About</a></li>
+    </header>
+    <h2>Список товаров</h2>
+
     <ol>
         {% for item in items %}
-            <li><strong>Name:</strong> {{ item.name }} | <strong>Quantity:</strong> {{ item.quantity }}</li>
+            <li><a href="/item/{{ item.id }}">{{ item.name }}</a></li>
         {% endfor %}
     </ol>
+
 </body>
 </html>
