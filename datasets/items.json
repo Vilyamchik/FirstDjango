@@ -7,5 +7,41 @@
         "brand": "abibas",
         "count": 10
     }
+},
+{
+    "model": "MainApp.item",
+    "pk": 2,
+    "fields": {
+        "name": "Куртка кожаная",
+        "brand": "gucci",
+        "count": 3
+    }
+},
+{
+    "model": "MainApp.item",
+    "pk": 3,
+    "fields": {
+        "name": "Кепка",
+        "brand": "nike",
+        "count": 6
+    }
+},
+{
+    "model": "MainApp.item",
+    "pk": 4,
+    "fields": {
+        "name": "Картофель фри",
+        "brand": "burgerking",
+        "count": 8
+    }
+},
+{
+    "model": "MainApp.item",
+    "pk": 5,
+    "fields": {
+        "name": "Coca-cola 1 литр",
+        "brand": "dobriy",
+        "count": 4
+    }
 }
 ]

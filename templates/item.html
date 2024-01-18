@@ -14,13 +14,14 @@
     <h1>{{ item.brand}} </h1>
 
     <div>
-        {% if item.quantity == 0 %}
+        {% if item.count == 0 %}
             Товар отсутствует
         {% else %}
-            Количество: {{ item.quantity }}
+            Количество: {{ item.count }}
         {% endif %}
     </div>
-
+    <p>{{ item.description }}</p>
     <a href="/items"> Назад к списку товаров</a>
 </body>
 </html>
+
