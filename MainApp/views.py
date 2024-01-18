@@ -76,16 +76,16 @@ def about(request):
 #     return render(request, "items.html", context)
 
 
-def get_item(request, item_id: int):
-    """ По указанному item_id возращаем имя элемента и количество. """
-    item = Item.objects.get(id=item_id)
-    if item:
-        context = {
-            "item": item
-        }
-        return render(request, "item.html", context)
-    else:
-        return HttpResponseNotFound(f'Item with id={item_id} not found')
+# def get_item(request, item_id: int):
+#     """ По указанному item_id возращаем имя элемента и количество. """
+#     item = Item.objects.get(id=item_id)
+#     if item:
+#         context = {
+#             "item": item
+#         }
+#         return render(request, "item.html", context)
+#     else:
+#         return HttpResponseNotFound(f'Item with id={item_id} not found')
     
 def get_items(request):
     items = Item.objects.all()
@@ -93,3 +93,16 @@ def get_items(request):
         "items": items
     }
     return render(request, "items.html", context)
+
+
+def get_item(request, item_id: int):
+    """ По указанному item_id возращаем имя элемента и количество. """
+    try:
+        item = Item.objects.get(id=item_id)
+    except ObjectDoesNotExist:
+        return HttpResponseNotFound(f'Item with id={item_id} not found')
+    else:
+        context = {
+            "item": item
+        }
+        return render(request, "item.html", context)

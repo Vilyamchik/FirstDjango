@@ -1,27 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title> Item page </title>
-</head>
-<body>
-    <header>
-        /<a href="/">Home</a></li>
-        /<a href="/items">Items</a></li>
-        /<a href="/about">About</a></li>
-    </header>
-    <h1>{{ item.name }} </h1>
-    <h1>{{ item.brand}} </h1>
+{% extends 'base.html' %}
 
-    <div>
-        {% if item.count == 0 %}
-            Товар отсутствует
-        {% else %}
-            Количество: {{ item.count }}
-        {% endif %}
-    </div>
-    <p>{{ item.description }}</p>
-    <a href="/items"> Назад к списку товаров</a>
-</body>
-</html>
+{% block title %}Home page{% endblock %}
 
+{% block content %}
+<h1>{{ item.name }} </h1>
+<h1>{{ item.brand}} </h1>
+
+<div>
+    {% if item.count == 0 %}
+        Товар отсутствует
+    {% else %}
+        Количество: {{ item.count }}
+    {% endif %}
+</div>
+<p>{{ item.description }}</p>
+<a href="/items"> Назад к списку товаров</a>
+{% endblock %}
